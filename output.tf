@@ -15,5 +15,5 @@ output "public_subnet_azs" {
 }
 
 output "vpc_id" {
-  value = aws_vpc.rosa.id
+  value = aws_vpc.rosa[0].id
 }
