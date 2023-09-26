@@ -13,3 +13,7 @@ output "private_subnet_azs" {
 output "public_subnet_azs" {
   value = length(var.network.public_subnet_ids) > 0 ? [] : [for net in aws_subnet.rosa_public : net.availability_zone]
 }
+
+output "vpc_id" {
+  value = aws_vpc.rosa.id
+}
