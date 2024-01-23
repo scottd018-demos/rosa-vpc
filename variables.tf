@@ -44,9 +44,3 @@ variable "tags" {
     error_message = "Please specify the 'owner' tag as part of 'var.tags'."
   }
 }
-
-variable "region" {
-  description = "Region for deployment"
-  type        = string
-  default     = "us-east-1"
-}
