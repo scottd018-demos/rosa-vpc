@@ -60,7 +60,7 @@ resource "aws_route" "rosa_private" {
 
   route_table_id         = aws_route_table.rosa_private[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_nat_gateway.rosa_public[count.index].id
+  nat_gateway_id         = aws_nat_gateway.rosa_public[count.index].id
 }
 
 resource "aws_route_table_association" "rosa_private" {
