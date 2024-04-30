@@ -8,7 +8,8 @@ resource "aws_subnet" "rosa_public" {
 
   tags = merge(var.tags,
     {
-      "Name" = "${var.cluster_name}-public-${data.aws_availability_zones.available.names[count.index]}"
+      "Name"                   = "${var.cluster_name}-public-${data.aws_availability_zones.available.names[count.index]}",
+      "kubernetes.io/role/elb" = "1"
     }
   )
 
@@ -27,7 +28,8 @@ resource "aws_subnet" "rosa_private" {
 
   tags = merge(var.tags,
     {
-      "Name" = "${var.cluster_name}-private-${data.aws_availability_zones.available.names[count.index]}"
+      "Name"                            = "${var.cluster_name}-private-${data.aws_availability_zones.available.names[count.index]}",
+      "kubernetes.io/role/internal-elb" = "1"
     }
   )
 
